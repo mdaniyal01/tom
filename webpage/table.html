@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Table Page</title>
+</head>
+<body>
+
+<h2>User Data</h2>
+
+<table border="1" cellpadding="10">
+    <thead>
+        <tr>
+            <th>First Name</th>
+            <th>Second Name</th>
+            <th>Phone</th>
+            <th>Country</th>
+            <th>Email</th>
+        </tr>
+    </thead>
+    <tbody id="tableBody">
+
+    </tbody>
+</table>
+
+<script>
+let users = JSON.parse(localStorage.getItem("users")) || [];
+
+let tbody = document.getElementById("tableBody");
+
+users.forEach(user => {
+    let row = `
+        <tr>
+            <td>${user.fname}</td>
+            <td>${user.sname}</td>
+            <td>${user.phone}</td>
+            <td>${user.country}</td>
+            <td>${user.email}</td>
+        </tr>
+    `;
+    tbody.innerHTML += row;
+});
+</script>
+
+</body>
+</html>
